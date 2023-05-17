@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# version:      1.0
+# state:        finish
+# updateTime:   2023年5月17日17:36:34
+
 ### [判断是否安装了sed与grep命令]
 
 if !command -v sed &> /dev/null || ! command -v grep &> /dev/null

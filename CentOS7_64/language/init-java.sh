@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# version:      1.0
+# state:        finish
+# updateTime:   2023年5月17日17:36:34
+
 # 定义安装目录
 install_dir="/usr/local/java"
 

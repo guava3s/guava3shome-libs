@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# version:      0.2.0
+# state:        unfinish
+# updateTime:   2023年5月17日17:36:34
+
 # 检查是否安装了git
 
 if ! command -v git &> /dev/null
