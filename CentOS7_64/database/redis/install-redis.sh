@@ -53,6 +53,6 @@ cp /opt/redis/redis-6.2.6/redis.conf /usr/local/bin/redis.conf
 # redis-server
 
 # 后台启动，后面是配置文件的位置，可以自由指定，且最好是复制一份不要在原配置文件上改配置
-redis-server /usr/local/bin/redis.conf
+# redis-server /usr/local/bin/redis.conf
 
-echo 'Redis started the background, can pass "ps - ef | grep redis" command to view'
+echo 'Redis installation is complete, please configure the configuration file and use redis server/usr/local/bin/redis. Conf command to start the redis server'

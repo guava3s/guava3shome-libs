@@ -1,11 +1,14 @@
 #!/bin/bash
 
-#判断是否安装了sed与grep命令
+### [判断是否安装了sed与grep命令]
+
 if !command -v sed &> /dev/null || ! command -v grep &> /dev/null
 then
 	echo "Please install sed and grep!"
 	exit
 fi
+
+### [输入新ip地址]
 
 read -p "Please input IP address:" inputIp
 
@@ -15,12 +18,15 @@ then
 	exit
 fi
 
-prefixIp=$(echo ${inputIp} | cut -d"." -f1-3)
+### [更改ifcfg-ens33文件]
 
-sed -i 's/BOOTPROTO="dhcp"/BOOTPROTO="static"/' /etc/sysconfig/network-scripts/ifcfg-ens33
-sed -i "$a\IPADDR="${inputIp}"" /etc/sysconfig/network-scripts/ifcfg-ens33
-sed -i "$a\GATEWAY="${inputIp}.2"" /etc/sysconfig/network-scripts/ifcfg-ens33
-sed -i "$a\DNS1="${inputIp}.2"" /etc/sysconfig/network-scripts/ifcfg-ens33
+prefixIp=$(echo ${inputIp} | cut -d"." -f1-3)
+targetFile="/etc/sysconfig/network-scripts/ifcfg-ens33"
+
+sed -i 's/BOOTPROTO="dhcp"/BOOTPROTO="static"/' $targetFile
+sed -i "$a IPADDR="$inputIp"" $targetFile
+sed -i "$a GATEWAY="$prefixIp.2"" $targetFile
+sed -i "$a DNS1="$prefixIp.2"" $targetFile
 
 systemctl restart network.service
 

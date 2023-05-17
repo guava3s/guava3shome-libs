@@ -1,5 +1,27 @@
 #!/bin/bash
 
+### [配置]--------------------------------------------------------------------
+
+mkdir /opt/redis/data
+
+# 后台启动
+# daemonize yes
+sed -i 's/daemonize no/daemonize yes' /usr/local/bin/redis.conf
+
+# 关闭保护模式
+# protected-mode no
+sed -i 's/protected-mode yes/protected-mode no' /usr/local/bin/redis.conf
+
+# 固定rdb文件生成位置，需要注意的是，这个目录要事先创建
+# dir /opt/redis/data/
+sed -i 's/dir .\//dir \/opt\/redis\/data/g' /usr/local/bin/redis.conf
+
+
+
+# 配置密码,之后登录需要进行身份验证 如：redis-cli -a 123465
+# requirepass 123456
+
+
 ### [开机自启动]--------------------------------------------------------------
 
 # 拷贝启动脚本
@@ -21,13 +43,3 @@ chkconfig --list
 reboot
 
 
-### [配置]--------------------------------------------------------------------
-
-# 后台启动
-# daemonize yes
-# 关闭保护模式
-# protected-mode no
-# 固定rdb文件生成位置，需要注意的是，这个目录要事先创建
-# dir /opt/redis/data/
-# 配置密码,之后登录需要进行身份验证 如：redis-cli -a 123465
-# requirepass 123456
