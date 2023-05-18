@@ -1,8 +1,8 @@
 #!/bin/bash
 
-# version:      1.0
+# version:      1.1
 # state:        finish
-# updateTime:   2023年5月17日17:36:34
+# updateTime:   2023年5月18日11:22:06
 
 ### [配置]--------------------------------------------------------------------
 
@@ -29,7 +29,7 @@ sed -i 's/dir .\//dir \/opt\/redis\/data/' /usr/local/bin/redis.conf
 ### [开机自启动]--------------------------------------------------------------
 
 # 拷贝启动脚本
-#cp /opt/redis/redis-6.2.6/utils/redis_init_script  /etc/init.d/redis
+cp /opt/redis/redis-6.2.6/utils/redis_init_script  /etc/init.d/redis
 #
 ## 修改启动脚本
 #vim /etc/init.d/redis
