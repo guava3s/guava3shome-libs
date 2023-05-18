@@ -10,15 +10,15 @@ mkdir /opt/redis/data
 
 # 后台启动
 # daemonize yes
-sed -i 's/daemonize no/daemonize yes' /usr/local/bin/redis.conf
+sed -i 's/daemonize no/daemonize yes/' /usr/local/bin/redis.conf
 
 # 关闭保护模式
 # protected-mode no
-sed -i 's/protected-mode yes/protected-mode no' /usr/local/bin/redis.conf
+sed -i 's/protected-mode yes/protected-mode no/' /usr/local/bin/redis.conf
 
 # 固定rdb文件生成位置，需要注意的是，这个目录要事先创建
 # dir /opt/redis/data/
-sed -i 's/dir .\//dir \/opt\/redis\/data/g' /usr/local/bin/redis.conf
+sed -i 's/dir .\//dir \/opt\/redis\/data/' /usr/local/bin/redis.conf
 
 
 
@@ -29,21 +29,22 @@ sed -i 's/dir .\//dir \/opt\/redis\/data/g' /usr/local/bin/redis.conf
 ### [开机自启动]--------------------------------------------------------------
 
 # 拷贝启动脚本
-cp /opt/redis/redis-6.2.6/utils/redis_init_script  /etc/init.d/redis
+#cp /opt/redis/redis-6.2.6/utils/redis_init_script  /etc/init.d/redis
+#
+## 修改启动脚本
+#vim /etc/init.d/redis
+#
+## 修改启动使用配置
+#CONF="/usr/local/bin/redis.conf"
+sed -i 's/^CONF=".*"/CONF="\/usr\/local\/bin\/redis.conf/' /etc/init.d/redis
 
-# 修改启动脚本
-vim /etc/init.d/redis
-
-# 修改启动使用配置
-CONF="/usr/local/bin/redis.conf"
-
-# 添加到启动配置中
+## 添加到启动配置中
 chkconfig --add redis
 
-# 查看
+## 查看
 chkconfig --list
 
-# 重启生效
-reboot
+## 重启生效
+echo 'Please restart it to take effect'
 
 
