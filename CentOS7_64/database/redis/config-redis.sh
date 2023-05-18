@@ -36,7 +36,7 @@ cp /opt/redis/redis-6.2.6/utils/redis_init_script  /etc/init.d/redis
 #
 ## 修改启动使用配置
 #CONF="/usr/local/bin/redis.conf"
-sed -i 's/^CONF=".*"/CONF="\/usr\/local\/bin\/redis.conf/' /etc/init.d/redis
+sed -i 's/^CONF=".*"/CONF="\/usr\/local\/bin\/redis.conf"/' /etc/init.d/redis
 
 ## 添加到启动配置中
 chkconfig --add redis
