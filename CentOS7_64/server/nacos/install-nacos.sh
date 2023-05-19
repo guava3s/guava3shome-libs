@@ -4,6 +4,7 @@
 # state:        finish
 # updateTime:   2023年5月18日17:38:43
 
+echo "Make sure you have mysql and jdk8+ installed!"
 
 mkdir /opt/nacos
 
