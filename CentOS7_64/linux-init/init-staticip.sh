@@ -1,8 +1,8 @@
 #!/bin/bash
 
-# version:      1.2
+# version:      1.2.1
 # state:        finish
-# updateTime:   2023年5月18日09:59:21
+# updateTime:   2023年5月24日23:37:30
 # description:  获取用户输入ip地址并更改本机ip为静态ip
 
 ### [判断是否安装了sed与grep命令]
@@ -57,7 +57,7 @@ else
 fi
 
 echo "The new IP address is ${inputIp}"
+echo
 echo "ifcfg-ens33 has been modified successfully."
-echo "About to restart the network service."
-
-systemctl restart network.service
+echo
+echo "Run the [systemctl restart network.service] command to restart the network service"
