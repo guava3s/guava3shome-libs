@@ -1,0 +1,17 @@
+# 官网链接
+https://github.com/coreybutler/nvm-windows/releases
+
+# 下载
+nvm-setup.zip
+
+# 无需配置，解压安装后直接使用，666
+
+# 常用命令
+nvm arch：表示node是运行在32位还是64位。
+nvm on ：开启node.js版本管理。
+nvm off：关闭node.js版本管理。
+nvm list [available]：查看已安装的node版本。available可选参数，查看所有可安装的node版本。list可简化成ls。
+nvm install [version]：安装指定的node版本。
+nvm use [version] [arch]：使用指定版本的node。可指定32位或64位。
+nvm uninstall <version>: 卸载指定版本的node。
+nvm version：查看nvm版本号。version可简化为v。
